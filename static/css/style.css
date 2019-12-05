@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgba(233, 230, 230, 0.884);
+    /* position: absolute; */
+    
+}
+
+/* .container {
+    max-width: 1024px;
+    margin: auto;
+} */
+.container {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: repeat(auto-fit, 100px);
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    /* width: 100px;
+    height: 100px;
+    margin: 2px; */
+    display: flex;
+    border: none;
+    cursor: pointer;
+}
+
+.field {
+    height: 50px;
+    width: 50%;
+    display: flex;
+    margin: 10px;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    /* transform: translate(-50%, -50%); */
+    transition: all .5s;
+
+}
+form>input {
+    height: 20px;
+    margin: 10px;
+    border: none;
+    text-align: right;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 15px;
+    background: rgba(233, 230, 230, 0.884);
+    color: #000000d8;
+    outline: none;
+    transition: all .3s;
+    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 
+    1px 1px 5px rgba(233, 230, 230, 0.884)
+}
+
+form>button {
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: rgb(146, 146, 146);
+    outline: none;
+    cursor: pointer;
+    transition: all .3s;
+    box-shadow: 0 -3px rgb(82, 99, 90) inset;
+    
+}
+
+form>button:hover {
+    background-color: rgba(212, 211, 211, 0.863);
+}
+
+form>button:active {
+    color: rgb(41, 41, 41);
+    box-shadow: 0 3px rgb(82, 99, 90) inset;
+    transition: all .3s;
+}
+
+.fieldNumber {
+    /* position: relative; */
+    text-align: center;
+    vertical-align: center;
+    margin: 10px;
+    width: 30%;
+}
