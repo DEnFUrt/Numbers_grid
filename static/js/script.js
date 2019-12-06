@@ -3,21 +3,26 @@ function createNumbersButtons(data, container) {
         const rowComponent = document.createElement('div');
         rowComponent.className = 'row';
         btnsContainer.appendChild(rowComponent);
+        
         const button = document.createElement('button');
         button.className = 'btn';
-        //button.style.backgroundColor = cells[cellId].color;
-        button.innerText = data[row];
-
-            // button.addEventListener('mouseenter', function() {
-            //     colorField.style.backgroundColor = cells[cellId].color;
-            // })
-            // button.addEventListener('mouseleave', function() {
-            //     colorField.style.backgroundColor = '#fff';
-            // })
-
+        button.textContent = data[row];
+        button.('data-number') = data[row];
         rowComponent.appendChild(button);
-        
     }
 }
 
 createNumbersButtons(panelsNumbers, btnsContainer);
+
+window.addEventListener('click', (e) => {
+    if (e.target.nodeName == 'BUTTON') {
+        numbersField.textContent = e.target.getAttribute('data-number') 
+    }
+});
+
+// button.addEventListener('mouseenter', function() {
+//     numbersField.textContent = button.textContent;
+//     });
+// button.addEventListener('mouseleave', function() {
+//     numbersField.textContent = '---';
+//     });
