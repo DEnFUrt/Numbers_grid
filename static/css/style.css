@@ -1,3 +1,7 @@
+* {
+    font-family: 'Kelly Slab', monospace, serif;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -14,8 +18,6 @@ body {
     grid-auto-rows: 100px;
 }
 
-
-
 .row {
     display: contents;
 }
@@ -25,6 +27,7 @@ body {
     border: none;
     cursor: pointer;
     justify-content: center;
+    font-size: 32px;
 }
 
 .field {
@@ -37,17 +40,6 @@ body {
         "fn fi";
 }
 
-@media screen and (max-width: 640px) {
-    .field {
-        grid-template-areas:
-        "fn"
-        "fi";
-    }
-    .formInput {
-        text-align: center;
-    }
-}
-
 .fieldNumber {
     grid-area: fn;
     /* background-color: aqua; */
@@ -58,7 +50,17 @@ body {
 
 .formInput {
     grid-area: fi;
-    
+}
+
+@media screen and (max-width: 640px) {
+    .field {
+        grid-template-areas:
+        "fn"
+        "fi";
+    }
+    .formInput {
+        text-align: center;
+    }
 }
 
 form>input {
@@ -77,6 +79,10 @@ form>input {
     1px 1px 5px rgba(233, 230, 230, 0.884)
 }
 
+form>input.errorValue {
+    box-shadow: 0 0 10px 1px rgba(255, 0, 34, 0.356);
+}
+
 form>button {
     height: 42px;
     width: 100px;
@@ -86,14 +92,14 @@ form>button {
     border-radius: 5px;
     color: rgb(146, 146, 146);
     outline: none;
-    cursor: pointer;
+    font-size: 20px;
     transition: all .3s;
     box-shadow: 0 -3px rgb(82, 99, 90) inset;
-    
 }
 
 form>button:hover {
     background-color: rgba(212, 211, 211, 0.863);
+    transition: all .3s;
 }
 
 form>button:active {
