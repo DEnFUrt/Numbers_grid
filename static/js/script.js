@@ -1,13 +1,14 @@
 startButton.addEventListener('click', () => {
-    if (!+inputValue.value) {
-        return;
+    if (inputValue.classList.contains(errInput)) {
+            inputValue.focus();
+            return;
     }
 
     clearContainer(btnsContainer);
 
-    let panelsNumbers = new Int8Array(+inputValue.value);
+    let panelsNumbers = new Int8Array(Math.round(+inputValue.value));
     window.crypto.getRandomValues(panelsNumbers);
-        
+    
     createNumbersButtons(panelsNumbers, btnsContainer);
 });
 
@@ -15,6 +16,11 @@ inputValue.addEventListener('input', (e) => {
     if (e.target.nodeName == 'INPUT') {
         !checkInputValue(e.target) ? setOnErrorBorderInput(e.target) : setOffErrorBorderInput(e.target);
     }
+});
+
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    startButton.click();
 });
 
 function clearContainer(btnsContainer) {
@@ -45,7 +51,11 @@ function createNumbersButtons(data, container) {
 }
 
 function checkInputValue (inputTarget) {
-    if (!-inputTarget.value && -inputTarget.value !== 0) {
+    if ((!+inputTarget.value && 
+        +inputTarget.value !== 0) || 
+        (+inputTarget.value < 0 ||
+        +inputTarget.value > 1000)    
+        ) {
         return false; //setOnErrorBorderInput(inputTarget);
     } else {
         return true; //setOffErrorBorderInput(inputTarget);
@@ -68,3 +78,4 @@ function setOffErrorBorderInput (inputTarget) {
     }
 };
 
+//onkeydown="if(event.keyCode==13){return false;}"
